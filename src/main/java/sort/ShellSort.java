@@ -23,14 +23,25 @@ package sort;
 public class ShellSort {
 
     public static int[] shellSort(int[] s){
-        for ()
-
-
+        int len = s.length;
+        int grap = s.length/2;
+        while (grap > 0) {
+            for (int i = grap; i < len ; i++) {
+                int t = s[i];
+                int index = i-grap;
+                while (index>=0&&s[index]>t){
+                    s[index+grap] = s[index];
+                    index -= grap;
+                }
+                s[index+grap] = t;
+            }
+            grap = grap/2;
+        }
         return s;
     }
 
     public static void main(String[] args) {
-        int[] s = {2,5,4,8,9,1,3,15};
+        int[] s = {2,5,4,8,9,1,3,15,7};
         for (int i = 0; i < s.length-1; i++) {
             System.out.print(s[i]+"\t");
         }
